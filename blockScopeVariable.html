@@ -1,0 +1,48 @@
+<script>
+
+    // 블럭 스코프 변수 선언 let, const
+    // 예제 1. : let을 사용한 블록 스코프 변수 
+    // if문 block의 내부를 기준으로 함.
+    function example1(){
+        let x = 10;
+        let y = 30;
+        if(true){ // 내부
+            let x = 20;
+            console.log("내부x", x); // 20
+            console.log("외부y", y); // 30
+            let z = 50;
+            console.log("내부z", z); // 50
+        }
+        console.log("외부x", x); // 10
+        // console.log("내부z", z); // not defined
+    }
+    // 함수 호출
+    example1();
+
+    // 예제 2. : const를 사용한 블록 스코프 상수
+    function example2(){
+        const PI = 3.14159;
+        if(true){
+            const PI = 3.14;
+            console.log(PI); // 3.14
+        }
+        console.log(PI); // 3.14159
+    }
+    example2();
+
+    // var 변수의 scope는 function(함수) 범위
+    // 함수 내에 선언된 모든 var 변수는 함수 상단으로 호이스트됨.
+    function varScope(){
+        if(true){
+            var a = 10;
+            if(true){
+                var b = 20;
+            }
+        }
+        console.log("a",a);
+        console.log("b",b);
+    }
+    varScope();
+
+    // [결론] var 보다는 let, const 권장함
+</script>

@@ -1,0 +1,70 @@
+<script>
+    const person1 = {name:'정희',age:20};
+    const person2 = {name:'윤서',age:25};
+    const person3 = {name:'미남',age:28};
+
+    persons =[]; // 배열
+    persons.push(person1);
+    persons.push(person2);
+    persons.push(person3);
+
+    // for(let i = 0; i < persons.length; i++){
+    //     console.log('Person '+(i+1) + ':');
+    //     console.log('Name: ',persons[i].name);
+    //     console.log('Age: ',persons[i].age);
+    //     console.log('----------------------');
+    // }
+
+    // person의 정보를 출력하는 메소드
+    function showPerson(person){
+        return person.name + " " +person.age;
+    }
+
+    // for(let i = 0; i <persons.length; i++){
+    //     console.log(showPerson(persons[i]));
+    //     console.log('-----------------------');
+    // }
+
+    // 객체를 만들어주는 템플릿 함수
+    function makePerson(name, age){
+        obj = {
+            name: name,
+            age: age
+        }
+        return obj;
+    }
+
+    // 객체 생성 함수를 이용한 객체 생성
+    const person4 = makePerson('Jane', 20);
+    console.log(showPerson(person4));
+    console.log('--------------------------');
+
+    // 생성자 함수(자바의 클래스와 비슷한 기능)
+    function Person(name, age){
+        this.name = name;
+        this.age = age;
+    }
+
+    const person = new Person("유나", 27);
+    console.log(person.name+ " " + person.age);
+    console.log('----------------------------');
+
+    // 향상된 for 문으로 persons 배열의 값 출력
+    for(p of persons){
+        console.log(p.name + " = " + p.age);
+    }
+    console.log('-------------------------');
+
+    // 생성자 함수에 메소드 정의
+    // `(백틱)
+    function Person2(name, age){
+        this.name = name;
+        this.age = age;
+        this.showPerson2 = function(){
+            console.log(`My name is ${this.name}, ${this.age} years old`);
+            console.log('My name is' + " " +this.name + " " + this.age +'years old');
+        }
+    }
+    const person22 = new Person2("태권", 27);
+    person22.showPerson2(); // console.log() 사용안함.
+</script>

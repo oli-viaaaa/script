@@ -1,0 +1,21 @@
+<script>
+
+    // 자바스크립트 객체(object)
+    var user ={
+        name:"Mika",
+        age:20
+    };
+
+    console.log('이름은',user.name);
+
+    // 객체 안에 또다른 객체를 가질 수 있음
+    var user = {
+        name:"Mika",
+        address:{zipcode:12345, address1:"서울시",address2:"관악구 삼성동"}
+    };
+
+    console.log('user 객체', user);
+    console.log('주소', user.address);
+    console.log('우편번호', user.address.zipcode);
+
+</script>
